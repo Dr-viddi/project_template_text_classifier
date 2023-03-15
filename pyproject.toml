@@ -1,0 +1,40 @@
+[build-system]
+requires = [
+    "setuptools",
+    "wheel",
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "text_classifier"
+description = "text classifier"
+version = "0.0.1"
+readme = "README.md"
+authors = []
+requires-python = ">=3.8"
+keywords = []
+dependencies = [
+    "pandas",
+    "numpy==1.21.6",
+    "scikit-learn==1.0.2",
+    "nltk==3.7",
+    "fastapi==0.88.0",
+    "uvicorn==0.20.0",
+    "matplotlib==3.6.2",
+    "seaborn==0.12.1",
+    "pytest==7.2.0",
+    "pre-commit==2.20.0",
+    "tensorflow==2.11.0"
+]
+
+[project.scripts]
+start_training_pipeline = "text_classifier.training_pipeline:main"
+
+[tool.setuptools.packages.find]
+where = [
+    ".",
+]
+include = [
+    "text_classifier*",
+]
+namespaces = false

@@ -1,0 +1,47 @@
+fail_fast: false  # if true, pre-commit will abort after first error
+repos:
+-   repo: https://github.com/psf/black
+    rev: 22.1.0
+    hooks:
+    -   id: black
+        description: the uncompromising Python code formatter
+        args: [--config=./pyproject.toml]
+-   repo: https://github.com/asottile/blacken-docs
+    rev: v1.12.1
+    hooks:
+    -   id: blacken-docs
+        description: .md and .rst formatter based on 'black' - specify black version in additional_dependencies!
+        args: [--line-length=120]
+        additional_dependencies: [black==19.3b0]
+-   repo: https://github.com/asottile/seed-isort-config
+    rev: v2.2.0
+    hooks:
+    -   id: seed-isort-config
+        description: extended 'isort' configuration - has to be placed before 'isort'
+        args: [--exclude=notebooks]
+-   repo: https://github.com/pre-commit/mirrors-isort
+    rev: v5.10.1
+    hooks:
+    -   id: isort
+        description: python import sorter
+        args: ["--profile", "black"]
+-   repo: https://gitlab.com/PyCQA/flake8
+    rev: 3.9.2
+    hooks:
+    -   id: flake8
+        description: Tool for style guide enforcement - wrapper around PyFlakes, pycodestyle and McCabe script.
+        args: [ --max-line-length=120]
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.1.0
+    hooks:
+    -   id: end-of-file-fixer
+        description: Ensures that a file is either empty, or ends with one newline.
+    -   id: trailing-whitespace
+        description: This hook trims trailing whitespace.
+    -   id: check-added-large-files
+        description: Prevent giant files from being committed.
+        args: [--maxkb=10000]
+    -   id: check-merge-conflict
+        description: Check for files that contain merge conflict strings.
+    -   id: check-yaml
+        description: This hook checks yaml files for parseable syntax.

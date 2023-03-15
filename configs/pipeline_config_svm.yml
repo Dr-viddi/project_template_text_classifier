@@ -1,0 +1,31 @@
+# Config file for the training_pipeline
+paths:
+    model_path: ./runs/model.pickle # path and name of trained model file to be stored and loaded for prediction 
+    tokenizer_path: ./runs/tokenizer.pickle # path and name of the fitted tokenizer file to be stored and loaded for prediction 
+    labels_path : ./runs/labels.pickle # path and name of the remaining labels after preprocessing
+    data_path: ./data/xxx.jsonl # path to dataset
+    class_count_plot: ./runs/fig_class_count.pdf # path to class count fig
+    confusion_matrix_plot: ./runs/fig_confusion_matrix.pdf # path to confusion matrix fig
+    accuracy_plot: ./runs/fig_accuracy.pdf # path to accuracy fig
+    loss_plot: ./runs/fig_loss.pdf # path to loss fig
+    classification_report: ./runs/classification_report.txt # path to classification report
+preprocessings:
+    text_to_keep: null # labels that are not removed from the dataset (to tackle imbalanced classes). If null, no data will be removed
+    remove_non_alphabetic_symbols: False # If true, non alphabetic symbols will be removed from the texts.
+    remove_single_characters: False # If true, single characters will be removed from the texts.
+    lowercase_text: False # If true, all characters in text will be lowercased
+    remove_multiple_spaces: False # If true, multiple spaces will be removed
+    remove_stopwords: False # If true, standard stopwords will be removed
+    stem_words: False # If true, words in text will be stemmed.
+    max_vocab_size: 30000 # For deep learning models: If null, no vocab limit used
+    pad_type: post # For deep learning models: Type of padding: "pre" or "post"
+    pad_trunc_type: post # For deep learning models: Type of truncataion: "pre" or "post"
+    max_pad_sequ_length: 1200 # For deep learning models: maximum sequence length
+model: 
+    name: svm # Name of the implemented models. Options are "svm", "native bayes", "logistic regression", and "random forest".
+    config: ./configs/model_config_svm_default.yml # Config for the model parameters. Default configs for each model are provided, i.e., config_svm.yml, config_naive_bayes.yml, config_random_forest.yml, and config_log_reg.
+dataset:
+    test_train_split: 0.25 # Train / Test split.
+    random_state: null # shuffling applied to the data before applying the split. Pass an int for reproducible output
+    shuffle: True # Whether or not to shuffle the data before splitting. If shuffle=False then stratify must be None.
+    stratify: null # If not None, data is split in a stratified fashion, using this as the class labels

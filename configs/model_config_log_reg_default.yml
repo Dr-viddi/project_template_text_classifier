@@ -1,0 +1,17 @@
+# Default config file for logistic regression. Please see sklearn.linear_model.LogisticRegression documentation for description of model params.
+model_params:
+    penalty: l2
+    dual: False
+    tol: 0.0001
+    C: 1.0
+    fit_intercept: True
+    intercept_scaling: 1
+    class_weight: null
+    random_state: null
+    solver: lbfgs
+    max_iter: 100
+    multi_class: auto
+    verbose: 0
+    warm_start: False
+    n_jobs: null
+    l1_ratio: null

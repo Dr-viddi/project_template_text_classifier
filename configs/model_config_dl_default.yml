@@ -1,0 +1,32 @@
+# Default config file for deep learning models. For description of the params, please see tf.keras.Model dokumentation.
+model_params:
+    vocab_size: 20000
+    max_sequ_len: 1200
+    embedding_dim: 100
+compile_params:    
+    optimizer: adam
+    loss: binary_crossentropy
+    metrics: categorical_accuracy
+    loss_weights: null
+    weighted_metrics: null
+    run_eagerly: null
+    steps_per_execution: null
+    jit_compile: null
+fit_params:
+    batch_size: 32
+    epochs: 10
+    verbose: auto
+    callbacks: null
+    validation_split:  0.1
+    validation_data: null
+    shuffle: True
+    class_weight: null
+    sample_weight: null
+    initial_epoch: 0
+    steps_per_epoch: null
+    validation_steps: null
+    validation_batch_size: null
+    validation_freq: 1
+    max_queue_size: 10
+    workers: 1
+    use_multiprocessing: False
